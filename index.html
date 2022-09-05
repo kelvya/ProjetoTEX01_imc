@@ -26,6 +26,25 @@
 
         O IMC é calculado dividindo o peso pela altura elevada ao quadrado. Será que você consegue descobrir qual o seu IMC?  
         */
+
+        function resultado(){
+            if (imc < 17){    
+                mensagem = "muito abaixo do peso"
+            } else if (imc >= 17 && imc < 18.4) {
+                mensagem = "abaixo do peso"
+            } else if (imc >= 18.5 && imc < 24.9) {
+                mensagem = "peso normal"
+            } else if (imc >= 25 && imc < 29.9) {
+                mensagem = "acima do peso"
+            } else if (imc >= 30 && imc < 34.9) {
+                mensagem = "obesidade I"
+            } else{
+                mensagem = "obesidade II"
+            }
+
+            return mensagem;
+                
+        };
        
         function conselho() 
         {
