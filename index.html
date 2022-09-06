@@ -1,85 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cálculo do IMC</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-    
-        let nome = prompt('Digite o seu nome:')
-        nome = nome.toUpperCase()
-        let  idade = prompt('Digite a sua idade:')
-        idade = Number(idade)
-        let peso = prompt('Digite o seu peso atual (kg):')
-        peso = Number(peso)
-        let altura = prompt('Digite sua altura (m):')
-        altura = Number(altura)
+      let nome = prompt("Digite o seu nome:");
+      nome = nome.toUpperCase();
+      let idade = prompt("Digite a sua idade:");
+      idade = Number(idade);
+      let peso = prompt("Digite o seu peso atual (kg):");
+      peso = Number(peso);
+      let altura = prompt("Digite sua altura (m):");
+      altura = Number(altura);
+      let imc, mensagem, msg;
+      let msgImc = 'O IMC (Índice de Massa Corporal) é um parâmetro utilizado para avaliar se o peso está dentro do valor ideal para a altura.'
+      let pergunta = 'Vamos começar?'
+      
+      //function saudacao
+      
+      function saudacao(){
+        console.log(`Olá ${nome}, seja bem vindo(a)!`); console.log(msgImc); console.log(pergunta)
+      }
+      saudacao()
 
-        //function calculaIMC
-        
-        function resultado(){
-            if (imc < 17){    
-                mensagem = "muito abaixo do peso"
-            } else if (imc >= 17 && imc < 18.4) {
-                mensagem = "abaixo do peso"
-            } else if (imc >= 18.5 && imc < 24.9) {
-                mensagem = "peso normal"
-            } else if (imc >= 25 && imc < 29.9) {
-                mensagem = "acima do peso"
-            } else if (imc >= 30 && imc < 34.9) {
-                mensagem = "obesidade I"
-            } else{
-                mensagem = "obesidade II"
-            }
+      //function calculaIMC
 
-            return mensagem;
-                
+      function resultado() {
+        if (imc < 17) {
+          mensagem = "muito abaixo do peso";
+        } else if (imc >= 17 && imc < 18.4) {
+          mensagem = "abaixo do peso";
+        } else if (imc >= 18.5 && imc < 24.9) {
+          mensagem = "peso normal";
+        } else if (imc >= 25 && imc < 29.9) {
+          mensagem = "acima do peso";
+        } else if (imc >= 30 && imc < 34.9) {
+          mensagem = "obesidade I";
+        } else {
+          mensagem = "obesidade II";
         }
-        
-     
-        function conselho(){
-            let msg
-            if(idade >= 18)
-            {
-                if(imc < 17) msg = `Seu IMC é ${calculaIMC()} e está muito abaixo, busque um nutricionista com urgência` 
-                else if(imc >= 17 && imc <= 18.49) msg = `Seu IMC é ${calculaIMC()} e está na faixa saudável, se mantenha com bons hábitos`; 
-                else if(imc >= 18.5 && imc <= 24.99) msg = `Seu IMC é ${calculaIMC()} e está um pouco acima do recomendado, fique atento com sua saúde.`; 
-                else if(imc >= 30 && imc <= 34.99) msg = `Seu IMC é ${calculaIMC()} e é classificado como Obesidade I, busque um nutricionista`; 
-                else if(imc >= 35 && imc <= 39.99) msg = `Seu IMC é ${calculaIMC()} e é classificado como Obesidade II, busque um nutricionista com urgência`; 
-            }else{
-                if(imc < 17) msg = `Seu IMC é ${calculaIMC()} e está muito abaixo, informe a um responsável para encaminhar-lhe a um nutricionista com urgência`; 
-                else if(imc >= 17 && imc <= 18.49) msg = `Seu IMC é ${calculaIMC()} e está na faixa saudável, se mantenha com bons hábitos`;
-                else if(imc >= 18.5 && imc <= 24.99) msg = `Seu IMC é ${calculaIMC()} e está um pouco acima do recomendado, fique atento com sua saúde.`;
-                else if(imc >= 30 && imc <= 34.99) msg = `Seu IMC é ${calculaIMC()} e é classificado como Obesidade I, informe a um responsável para encaminhar-lhe a um nutricionista`;
-                else if(imc >= 35 && imc <= 39.99) msg = `Seu IMC é ${calculaIMC()} e é classificado como Obesidade II, informe a um responsável para encaminhar-lhe a um nutricionista com urgência`;
-            }
-            return msg
 
-        }   
+        return mensagem;
+      }
 
-        function despedida(){
-            alert("É isso! O que você deseja fazer a seguir?")
-            let pergunta = prompt("Digite 1 para rever seus dados ou digite 2 para encerrar o programa:")
-            if(pergunta == 1){
-                let escolha = prompt("Qual dado voce quer rever? Digite 1 para peso, 2 para altura e 3 para IMC:")
-                switch(escolha){
-                    case 1: console.log(peso)
-                    break;
-                    case 2: console.log(altura)
-                    break;
-                    case 3: console.log(calculaimc())
-                    break;
-                    default: console.log("Ate mais!")
-                }
-            }else{
-                console.log("Até mais!")
-            }
-
-            
+      function conselho() {
+        if (idade >= 18) {
+          if (imc < 17)
+            msg = `Seu IMC é ${calculaIMC()} e está muito abaixo, busque um nutricionista com urgência`;
+          else if (imc >= 17 && imc <= 18.49)
+            msg = `Seu IMC é ${calculaIMC()} e está na faixa saudável, se mantenha com bons hábitos`;
+          else if (imc >= 18.5 && imc <= 24.99)
+            msg = `Seu IMC é ${calculaIMC()} e está um pouco acima do recomendado, fique atento com sua saúde.`;
+          else if (imc >= 30 && imc <= 34.99)
+            msg = `Seu IMC é ${calculaIMC()} e é classificado como Obesidade I, busque um nutricionista`;
+          else if (imc >= 35 && imc <= 39.99)
+            msg = `Seu IMC é ${calculaIMC()} e é classificado como Obesidade II, busque um nutricionista com urgência`;
+        } else {
+          if (imc < 17)
+            msg = `Seu IMC é ${calculaIMC()} e está muito abaixo, informe a um responsável para encaminhar-lhe a um nutricionista com urgência`;
+          else if (imc >= 17 && imc <= 18.49)
+            msg = `Seu IMC é ${calculaIMC()} e está na faixa saudável, se mantenha com bons hábitos`;
+          else if (imc >= 18.5 && imc <= 24.99)
+            msg = `Seu IMC é ${calculaIMC()} e está um pouco acima do recomendado, fique atento com sua saúde.`;
+          else if (imc >= 30 && imc <= 34.99)
+            msg = `Seu IMC é ${calculaIMC()} e é classificado como Obesidade I, informe a um responsável para encaminhar-lhe a um nutricionista`;
+          else if (imc >= 35 && imc <= 39.99)
+            msg = `Seu IMC é ${calculaIMC()} e é classificado como Obesidade II, informe a um responsável para encaminhar-lhe a um nutricionista com urgência`;
         }
+        return msg;
+      }
+
+      function despedida() {
+        alert("É isso! O que você deseja fazer a seguir?");
+        let pergunta = prompt(
+          "Digite 1 para rever seus dados ou digite 2 para encerrar o programa:"
+        );
+        if (pergunta == 1) {
+          let escolha = prompt(
+            "Qual dado voce quer rever? Digite 1 para peso, 2 para altura e 3 para IMC:"
+          );
+          switch (escolha) {
+            case 1:
+              console.log(peso);
+              break;
+            case 2:
+              console.log(altura);
+              break;
+            case 3:
+              console.log(calculaimc());
+              break;
+            default:
+              console.log("Ate mais!");
+          }
+        } else {
+          console.log("Até mais!");
+        }
+
 
         function alertaSaude() {
             alert('Ter uma alimentação saudável reflete diretamente em uma vida melhor.Essa é uma escolha em que você é o(a) maior beneficiado(a) e verá os resultados não apenas no seu corpo, mas também no seu bem - estar.')
@@ -89,5 +109,13 @@
         
     </script>
 
-</body>
+      }
+
+
+      console.log(
+        `Olá, novamente, ${nome}! O resultado do cálculo do seu IMC é ${resultado()}. ${conselho()}.`
+      );
+      
+    </script>
+  </body>
 </html>
