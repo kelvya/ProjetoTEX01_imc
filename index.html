@@ -9,27 +9,76 @@
 <body>
     <script>
     
-        /*
-        []Solicitar dados do usuário
-        []Armazenar em variáveis
-        []Implementar o cálculo
-        []Retornar valor ao usuário
-        
-        O IMC ou índice de massa corporal, nos ajuda a identificar algumas caracteristicas como obesidade ou desnutrição. Abaixo temos uma tabela indicando o significado do valor que você encontrar:
+        let nome = prompt("Informe seu nome:")
+        nome = nome.toUpperCase()
+        let  idade = prompt("Informe a sua idade:")
+        idade = Number(idade)
+        let peso = prompt("Informe seu peso:")
+        peso = Number(peso)
+        let altura = prompt("Informe sua altura:")
+        altura = Number(altura)
 
-      Abaixo de 17            Muito abaixo do peso
-      Entre 17 e 18,49    Abaixo do peso
-      Entre 18,5 e 24,99  Peso normal
-      Entre 25 e 29,99    Acima do peso
-      Entre 30 e 34,99    Obesidade I
-      Entre 35 e 39,99    Obesidade II
+        //function calculaIMC
+        
+        function resultado(){
+            if (imc < 17){    
+                mensagem = "muito abaixo do peso"
+            } else if (imc >= 17 && imc < 18.4) {
+                mensagem = "abaixo do peso"
+            } else if (imc >= 18.5 && imc < 24.9) {
+                mensagem = "peso normal"
+            } else if (imc >= 25 && imc < 29.9) {
+                mensagem = "acima do peso"
+            } else if (imc >= 30 && imc < 34.9) {
+                mensagem = "obesidade I"
+            } else{
+                mensagem = "obesidade II"
+            }
 
-      O IMC é calculado dividindo o peso pela altura elevada ao quadrado. Será que você consegue descobrir qual o seu IMC?
+            return mensagem;
+                
+        }
         
+     
+        function conselho(){
+            let msg
+            if(idade >= 18)
+            {
+                if(imc < 17) msg = `Seu IMC é ${calculaIMC()} e está muito abaixo, busque um nutricionista com urgência` 
+                else if(imc >= 17 && imc <= 18.49) msg = `Seu IMC é ${calculaIMC()} e está na faixa saudável, se mantenha com bons hábitos`; 
+                else if(imc >= 18.5 && imc <= 24.99) msg = `Seu IMC é ${calculaIMC()} e está um pouco acima do recomendado, fique atento com sua saúde.`; 
+                else if(imc >= 30 && imc <= 34.99) msg = `Seu IMC é ${calculaIMC()} e é classificado como Obesidade I, busque um nutricionista`; 
+                else if(imc >= 35 && imc <= 39.99) msg = `Seu IMC é ${calculaIMC()} e é classificado como Obesidade II, busque um nutricionista com urgência`; 
+            }else{
+                if(imc < 17) msg = `Seu IMC é ${calculaIMC()} e está muito abaixo, informe a um responsável para encaminhar-lhe a um nutricionista com urgência`; 
+                else if(imc >= 17 && imc <= 18.49) msg = `Seu IMC é ${calculaIMC()} e está na faixa saudável, se mantenha com bons hábitos`;
+                else if(imc >= 18.5 && imc <= 24.99) msg = `Seu IMC é ${calculaIMC()} e está um pouco acima do recomendado, fique atento com sua saúde.`;
+                else if(imc >= 30 && imc <= 34.99) msg = `Seu IMC é ${calculaIMC()} e é classificado como Obesidade I, informe a um responsável para encaminhar-lhe a um nutricionista`;
+                else if(imc >= 35 && imc <= 39.99) msg = `Seu IMC é ${calculaIMC()} e é classificado como Obesidade II, informe a um responsável para encaminhar-lhe a um nutricionista com urgência`;
+            }
+            return msg
+        }   
+
+        function despedida(){
+            alert("É isso! O que você deseja fazer a seguir?")
+            let pergunta = prompt("Digite 1 para rever seus dados ou digite 2 para encerrar o programa:")
+            if(pergunta == 1){
+                let escolha = prompt("Qual dado voce quer rever? Digite 1 para peso, 2 para altura e 3 para IMC:")
+                switch(escolha){
+                    case 1: console.log(peso)
+                    break;
+                    case 2: console.log(altura)
+                    break;
+                    case 3: console.log(calculaimc())
+                    break;
+                    default: console.log("Ate mais!")
+                }
+            }else{
+                console.log("Até mais!")
+            }
+        }
         
-        
-        
-        */
     </script>
+
 </body>
 </html>
