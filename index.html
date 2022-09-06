@@ -76,6 +76,23 @@
                 else if(imc >= 35 && imc <= 39.99) msg = `Seu IMC é ${imc} e é classificado como Obesidade II, informe a um responsável para encaminhar-lhe a um nutricionista com urgência`;
             }
             return msg
+            
+        function despedida(){
+        alert("É isso! O que você deseja fazer a seguir?")
+        let pergunta = prompt("Digite 1 para rever seus dados ou digite 2 para encerrar o programa:")
+        if(pergunta == 2){
+            console.log("Até mais!")
+        }else{
+            let escolha = prompt("Qual dado voce quer rever? Digite 1 para peso, 2 para altura e 3 para IMC:")
+            switch(escolha){
+                case 1: console.log(peso)
+                break;
+                case 2: console.log(altura)
+                break;
+                case 3: console.log(calculaimc())
+                break;
+                default: console.log("Ate mais!")
+
         }
         
       </script>
